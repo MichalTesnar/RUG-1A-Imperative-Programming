@@ -19,7 +19,15 @@ int main(int argc, char **argv)
 	int reverse = 0; //reverse number to given number
 	int counter = 0; //counts numbers which satisfy the condition
 	
-	for(int i = a;i<=b;i++){
+	int i=0; //iterable
+	
+	if(a%d==0){
+		i=a;
+	} else if((a/d)*d<a){
+		i=(a/d+1)*d;
+	}
+	
+	for(i=i;i<=b;i+=d){
 		reverse = 0;
 		a = i;
 		
@@ -33,6 +41,7 @@ int main(int argc, char **argv)
 		
 		if(d!=0 && i%d==0 && reverse%d==0){
 			counter++;
+			//printf("YES");
 		}
 		
 	}

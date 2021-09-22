@@ -17,15 +17,12 @@ int main(int argc, char **argv)
 	
 	int i=0, j=0, k=0; //iterable variables
 	int counter = 0;
-	
+
 	while(i*a<=n){
-		
 		while(i*a+j*b<=n){
-			
 			while(i*a+j*b+k*c<=n){
-				
 				if(i*a+j*b+k*c==n){
-					printf("%i %i %i\n", i, j, k);
+					//printf("%i %i %i\n", i, j, k);
 					counter++;
 				}
 				k++;
@@ -34,9 +31,8 @@ int main(int argc, char **argv)
 			j++;
 			k=0;
 		}
-		
-		j=0;
 		i++;
+		j=0;
 	}
 	
 	printf("%i\n", counter);
