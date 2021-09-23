@@ -1,7 +1,9 @@
 /*
- * OverlappingDiscs.c
+ * overlappingDiscs.c
  * 
  * Copyright 2021 Michal Tešnar <michal.tesnar007@gmail.com>
+ * 
+ * This program outputs number of circles which have an overlap with another circle.
  */
 
 
@@ -20,7 +22,7 @@ int main(int argc, char **argv)
 	scanf("%i %i %i", &centerX3, &centerY3, &radius3);
 	
 	//variables describing whether a circle is overlaping with another one
-	int overlap1=0, overlap2=0, overlap3=0;
+	int overlap1 = 0, overlap2 = 0, overlap3 = 0;
 	
 	/*
 	 * We calculate the distance between two centers of circles
@@ -30,23 +32,23 @@ int main(int argc, char **argv)
 	 * whether a circle overlaps with another one to 1.
 	 */
 	 
-	if((centerX1-centerX2)*(centerX1-centerX2)+(centerY1-centerY2)*(centerY1-centerY2)<(radius1+radius2)*(radius1+radius2)){
-		overlap1=1;
-		overlap2=1;
+	if((centerX1 - centerX2)*(centerX1 - centerX2)+(centerY1 - centerY2)*(centerY1 - centerY2)<(radius1 + radius2)*(radius1 + radius2)){
+		overlap1 = 1;
+		overlap2 = 1;
 	}
 	
-	if((centerX1-centerX3)*(centerX1-centerX3)+(centerY1-centerY3)*(centerY1-centerY3)<(radius1+radius3)*(radius1+radius3)){
-		overlap1=1;
-		overlap3=1;
+	if((centerX1 - centerX3)*(centerX1 - centerX3)+(centerY1 - centerY3)*(centerY1 - centerY3)<(radius1 + radius3)*(radius1 + radius3)){
+		overlap1 = 1;
+		overlap3 = 1;
 	}
 	
-	if((centerX3-centerX2)*(centerX3-centerX2)+(centerY3-centerY2)*(centerY3-centerY2)<(radius3+radius2)*(radius3+radius2)){
-		overlap2=1;
-		overlap3=1;
+	if((centerX3 - centerX2)*(centerX3 - centerX2)+(centerY3 - centerY2)*(centerY3 - centerY2)<(radius3 + radius2)*(radius3 + radius2)){
+		overlap2 = 1;
+		overlap3 = 1;
 	}
 	
 	//We answer the sum of all circles that have some overlap with another one.
-	printf("%i\n", overlap1+overlap2+overlap3);
+	printf("%i\n", overlap1 + overlap2 + overlap3);
 	
 	return 0;
 }

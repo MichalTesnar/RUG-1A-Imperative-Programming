@@ -2,6 +2,8 @@
  * productDivisors.c
  * 
  * Copyright 2021 Michal Tešnar <michal.tesnar007@gmail.com>
+ * 
+ * This program checks if the given number is divisible by the product of its divisors.
  */
 
 
@@ -9,7 +11,7 @@
 
 int main(int argc, char **argv)
 {
-	int n, product=1; //input variable, variable to calculate the product of the digits
+	int n, product = 1; //input variable, variable to calculate the product of the digits
 	
 	scanf("%d",&n);
 	
@@ -22,22 +24,22 @@ int main(int argc, char **argv)
 	* Repeat four times, because the maximum size is 4 digits.
 	*/
 	
-	if(manipulated!=0){
+	if(manipulated != 0){
 		product *= manipulated%10;
 		manipulated = manipulated/10;
 	}
 	
-	if(manipulated!=0){
+	if(manipulated != 0){
 		product *= manipulated%10;
 		manipulated = manipulated/10;
 	}
 	
-	if(manipulated!=0){
+	if(manipulated != 0){
 		product *= manipulated%10;
 		manipulated = manipulated/10;
 	}
 	
-	if(manipulated!=0){
+	if(manipulated != 0){
 		product *= manipulated%10;
 		manipulated = manipulated/10;
 	}
@@ -48,7 +50,7 @@ int main(int argc, char **argv)
 	 * and answer either YES or NO.
 	 */
 	 
-	if(product != 0 && n%product==0){
+	if(product != 0 && n%product == 0){
 		printf("YES\n");
 	}else{
 		printf("NO\n");
