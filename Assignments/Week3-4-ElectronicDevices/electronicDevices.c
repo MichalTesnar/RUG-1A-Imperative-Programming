@@ -15,21 +15,27 @@ int main(int argc, char **argv)
 	scanf("%i %i %i %i", &a, &b, &c, &n);
 	
 	
-	int i=0, j=0, k=0; //iterable variables
+	int i=0, j=0; //iterable variables
 	int counter = 0;
+	int solutionExists = 1;
 
 	while(i*a<=n){
-		while(i*a+j*b<=n){
-			while(i*a+j*b+k*c<=n){
+		while(j*b+i*a<=n){
+			/*while(i*a+j*b+k*c<=n){
 				if(i*a+j*b+k*c==n){
 					//printf("%i %i %i\n", i, j, k);
 					counter++;
 				}
 				k++;
-			}
+			}*/
+			
+			if((n-(i*a+j*b))%c==0){
+					//printf("%i %i\n", i, j);
+					counter++;
+				}
 			
 			j++;
-			k=0;
+			//k=0;
 		}
 		i++;
 		j=0;
