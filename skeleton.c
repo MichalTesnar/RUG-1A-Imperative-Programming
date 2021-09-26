@@ -1,13 +1,14 @@
 /*
- * <nameOfTheProgram>.c
+ * file: <nameOfTheProgram>.c
  * 
- * Copyright 2021 Michal Tešnar <michal.tesnar007@gmail.com>
+ * author: Michal Tešnar (m.tesnar@studen.rug.nl)>
  * 
- * <Description of the program.>
+ * Description: <add here>
  */
 
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
