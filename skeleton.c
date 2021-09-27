@@ -1,7 +1,7 @@
 /*
  * file: <nameOfTheProgram>.c
  * 
- * author: Michal Tešnar (m.tesnar@studen.rug.nl)>
+ * author: Michal Tešnar (m.tesnar@student.rug.nl)>
  * 
  * Description: <add here>
  */

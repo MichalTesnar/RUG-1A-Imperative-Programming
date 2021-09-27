@@ -1,7 +1,7 @@
 /*
  * file: functionEvaluator.c
  * 
- * author: Michal Tešnar (m.tesnar@studen.rug.nl)>
+ * author: Michal Tešnar (m.tesnar@student.rug.nl)>
  * 
  * Description: This program defines three functions
  * and executes them on a number in the order given
@@ -11,24 +11,41 @@
 
 #include <stdio.h>
 
-int functionF(int *x){
-	return 3*(*x)+1;
+
+void functionF(int *x){
+	*x = 3*(*x)+1;
 }
 
-int functionG(int *x){
-	return *x/2;
+void functionG(int *x){
+	*x = *x/2;
 }
 
-int functionH(int *x){
-	return (*x)*(*x)-(*x);
+void functionH(int *x){
+	*x = (*x)*(*x)-(*x);
 }
 
 int main(int argc, char **argv)
 {
 	int n; //input variable
-	char functionOrder[]; //commands to execute on the variable
+	char functionOrder[10]; //commands to execute on the variable
 	scanf("%i %s", &n, functionOrder);
-	printf("%i %i %i", functionF(&n), functionG(&n), functionH(&n));
+	
+	int i=0;
+	while(functionOrder[i]!= '='){
+		switch(functionOrder[i]){
+			case 'f':
+				functionF(&n);
+				break;
+			case 'g':
+				functionG(&n);
+				break;
+			case 'h':
+				functionH(&n);
+				break;
+		}
+		i++;
+	}
+	printf("%i\n", n);
 	return 0;
 }
 
