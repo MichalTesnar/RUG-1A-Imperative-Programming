@@ -12,35 +12,35 @@
 #include <stdio.h>
 
 
-void functionF(int *x){
-	*x = 3*(*x)+1;
+int functionF(int x){
+	return 3*x+1;
 }
 
-void functionG(int *x){
-	*x = *x/2;
+int functionG(int x){
+	return x/2;
 }
 
-void functionH(int *x){
-	*x = (*x)*(*x)-(*x);
+int functionH(int x){
+	return x*x-x;
 }
 
 int main(int argc, char **argv)
 {
 	int n; //input variable
-	char functionOrder[10]; //commands to execute on the variable
+	char functionOrder[100000]; //commands to execute on the variable
 	scanf("%i %s", &n, functionOrder);
 	
 	int i=0;
 	while(functionOrder[i]!= '='){
 		switch(functionOrder[i]){
 			case 'f':
-				functionF(&n);
+				n=functionF(n);
 				break;
 			case 'g':
-				functionG(&n);
+				n=functionG(n);
 				break;
 			case 'h':
-				functionH(&n);
+				n=functionH(n);
 				break;
 		}
 		i++;

@@ -1,24 +1,57 @@
 /*
- * file: <nameOfTheProgram>.c
+ * file: palindromicDivisors.c
  * 
  * author: Michal Tešnar (m.tesnar@student.rug.nl)>
  * 
- * Description: <add here>
+ * Description: Program outputs the number of numbers in a given range
+ * which have only one palindromic divisor.
  */
 
 
 #include <stdio.h>
 
+int isPalindrom(int j){
+	int manipulated = j;
+	int reverse = 0;
+	while(manipulated!=0){
+		reverse += manipulated%10;
+		reverse *= 10;
+		manipulated/=10;
+		}
+	reverse/=10;
+	if(reverse==j){
+		return 1;
+	}
+	
+	return 0;
+}
+
 int main(int argc, char **argv)
 {
-	//input
+	int a, b; //range
 	
-	//go through the range
-		//check all possible divisors
-			//check if they are palindroms
-				//check if the number divides the number
+	scanf("%i %i", &a, &b);
+	int amount = 0;
+
+	for(int i = a;i<=b;i++){
+		int counter = 0;
+		for(int j=1; j*j<=i; j++){
+			if(i%j==0 && isPalindrom(j)==1){
+				counter++;
+				
+			}
+			if(i%(i/j)==0 &&isPalindrom(i/j)==1 && j!=1){
+				counter++;
+				}
+		}
+		
+		if(counter == 1){
+			amount++;
+		}
+		//printf("%i %i\n", i, counter);
+	}	
 	
-	printf("Hello world!\n");
+	printf("%i\n", amount);
 	return 0;
 }
 
