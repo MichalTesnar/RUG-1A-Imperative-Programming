@@ -7,19 +7,17 @@
  * which have only one palindromic divisor.
  */
 
-
 #include <stdio.h>
 
 int isPalindrom(int j){
 	int manipulated = j;
 	int reverse = 0;
-	while(manipulated!=0){
-		reverse += manipulated%10;
-		reverse *= 10;
-		manipulated/=10;
+	while(manipulated != 0){
+		reverse = reverse*10 + manipulated%10;
+		manipulated /= 10;
 		}
-	reverse/=10;
-	if(reverse==j){
+	
+	if(reverse == j){
 		return 1;
 	}
 	
@@ -28,23 +26,22 @@ int isPalindrom(int j){
 
 int main(int argc, char **argv)
 {
-	int a, b; //range
-	
+	int a, b; //input range
 	scanf("%i %i", &a, &b);
+	
 	int amount = 0;
 
-	for(int i = a;i<=b;i++){
+	for(int i = a; i <= b; i++){
 		int counter = 0;
-		for(int j=1; j*j<=i; j++){
-			if(i%j==0 && isPalindrom(j)==1){
+		for(int j=1; j*j <= i; j++){
+			if(i%j == 0 && isPalindrom(j) == 1){
 				counter++;
-				
 			}
-			if(i%(i/j)==0 &&isPalindrom(i/j)==1 && j!=1){
+			if(i%j == 0 && isPalindrom(i/j) == 1 && i/j != 1){
 				counter++;
-				}
+			}
+			
 		}
-		
 		if(counter == 1){
 			amount++;
 		}

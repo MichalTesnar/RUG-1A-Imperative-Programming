@@ -1,7 +1,7 @@
 /*
  * file: functionEvaluator.c
  * 
- * author: Michal Tešnar (m.tesnar@student.rug.nl)>
+ * author: Michal Tešnar (m.tesnar@student.rug.nl)
  * 
  * Description: This program defines three functions
  * and executes them on a number in the order given
@@ -25,11 +25,11 @@ int functionH(int x){
 int main(int argc, char **argv)
 {
 	int n; //input variable
-	scanf("%i %s", &n, functionOrder);
 	char functionOrder[100000]; //commands to execute on the variable
+	scanf("%i %s", &n, functionOrder);
 	
 	//Go through the commands until the '=' and execute them on the variable.
-	int i=0;
+	int i = 0;
 	while(functionOrder[i] != '='){
 		switch(functionOrder[i]){
 			case 'f':

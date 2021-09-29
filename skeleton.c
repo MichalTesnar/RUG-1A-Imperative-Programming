@@ -1,9 +1,9 @@
 /*
- * file: <nameOfTheProgram>.c
+ * file: ***nameOfTheProgram***.c
  * 
- * author: Michal Tešnar (m.tesnar@student.rug.nl)>
+ * author: Michal Tešnar (m.tesnar@student.rug.nl)
  * 
- * Description: <add here>
+ * Description: ***add here***
  */
 
 
