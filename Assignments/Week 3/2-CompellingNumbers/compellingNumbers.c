@@ -9,8 +9,7 @@
 
 #include <stdio.h>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	int a, b; //range defining variables
 	scanf("%i %i", &a, &b); 
 	
@@ -39,14 +38,14 @@ int main(int argc, char **argv)
 		}
 		
 		//compare if there are more divisors and increase the counter
-		if(divisors>binary){
+		if(divisors > binary){
 			counter++;
 		}
 		
 		//reset counters
-		binary=1;
-		divisors=0;
-		powerTwo=1;
+		binary = 1;
+		divisors = 0;
+		powerTwo = 1;
 	}
 	
 	printf("%i\n", counter);

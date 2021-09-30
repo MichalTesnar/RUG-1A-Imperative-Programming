@@ -8,8 +8,7 @@
 
 #include <stdio.h>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	int a, b, c, n; //variables for devices, budget
 	scanf("%i %i %i %i", &a, &b, &c, &n);
 	
@@ -24,7 +23,7 @@ int main(int argc, char **argv)
 	 */
 	while(i*a <= n){
 		while(j*b + i*a <= n){
-			if((n- (i*a+ j*b))%c == 0){
+			if((n - (i*a + j*b) )%c == 0){
 					counter++;
 			}
 			j++;

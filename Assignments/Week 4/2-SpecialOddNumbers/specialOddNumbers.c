@@ -44,8 +44,7 @@ int onesInBinary(int n){
 	return binary;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	int n, m; //input range
 	scanf("%i %i", &n, &m);
 	int counter = 0; //counts numbers which sarisfy condition

@@ -1,21 +1,51 @@
+/*
+ * file: functionEvaluator.c
+ * 
+ * author: Michal Tešnar (m.tesnar@student.rug.nl)
+ * 
+ * Description: This program defines three functions
+ * and executes them on a number in the order given
+ * by input.
+ */
+
 #include <stdio.h>
 
-int manhattanDistance(int x1, int y1, int x2, int y2){
-	int xDif = x1-x2;
-	int yDif = y1-y2;
-	if(xDif<0){
-		xDif=-xDif;
-	}
-	if(yDif<0){
-		yDif=-yDif;
-	}
-	return xDif+yDif;
+int functionF(int x){
+	return 3*x + 1;
 }
 
-int main(int argc, char **argv)
-{
-	int x1, y1, x2, y2; //input
-	scanf("%i %i %i %i", &x1, &y1, &x2, &y2);
-	printf("%i", manhattanDistance(x1, y1, x2, y2));
+int functionG(int x){
+	return x/2;
+}
+
+int functionH(int x){
+	return x*x - x;
+}
+
+int main(int argc, char **argv){
+	int n; //input variable
+	char command; //commands to execute on the variable
+	scanf("%i", &n);
+	
+	//Go through the commands until the '=' and execute them on the variable.
+	while(scanf("%c", &command)){
+		switch(command){
+			case 'f':
+				n = functionF(n);
+				break;
+			case 'g':
+				n = functionG(n);
+				break;
+			case 'h':
+				n = functionH(n);
+				break;
+		}
+		if(command == '='){
+			break;
+		}
+	}
+	
+	printf("%i\n", n);
 	return 0;
 }
+

@@ -22,16 +22,14 @@ int functionH(int x){
 	return x*x - x;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	int n; //input variable
-	char functionOrder[100000]; //commands to execute on the variable
-	scanf("%i %s", &n, functionOrder);
+	char command; //commands to execute on the variable
+	scanf("%i", &n);
 	
 	//Go through the commands until the '=' and execute them on the variable.
-	int i = 0;
-	while(functionOrder[i] != '='){
-		switch(functionOrder[i]){
+	while(scanf("%c", &command)){
+		switch(command){
 			case 'f':
 				n = functionF(n);
 				break;
@@ -42,7 +40,9 @@ int main(int argc, char **argv)
 				n = functionH(n);
 				break;
 		}
-		i++;
+		if(command == '='){
+			break;
+		}
 	}
 	
 	printf("%i\n", n);

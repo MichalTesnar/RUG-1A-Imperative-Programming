@@ -10,8 +10,7 @@
 
 #include <stdio.h>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	int n, counter = 0; //input number, counter of unitary divisors
 	scanf("%i", &n);
 	
@@ -34,7 +33,7 @@ int main(int argc, char **argv)
 			
 			//if it is divisible by any, we will not increase the counter
 			if(unitary == 1){
-				counter+=2;
+				counter += 2;
 			}
 			//reset the counter
 			unitary = 1;

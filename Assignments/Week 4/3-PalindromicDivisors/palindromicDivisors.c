@@ -26,8 +26,7 @@ int isPalindrom(int j){
 	return 0;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	int a, b; //input range
 	scanf("%i %i", &a, &b);
 	

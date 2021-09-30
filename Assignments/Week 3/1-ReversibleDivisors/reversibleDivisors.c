@@ -10,8 +10,7 @@
 
 #include <stdio.h>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	int a, b, d; //range definition, divisor
 	scanf("%i %i %i", &a, &b, &d);
 	
