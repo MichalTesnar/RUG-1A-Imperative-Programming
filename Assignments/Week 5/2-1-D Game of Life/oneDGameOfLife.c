@@ -14,8 +14,12 @@
 //prints the values in an array
 void printArray(int size, int array[size]){
 	for(int i = 0; i < size; i++){
-		printf("%i ", array[i]);
+		printf("%i", array[i]);
+		if(i!=size-1){
+			printf(" ");
+		}
 	}
+	printf("\n");
 }
 
 //counts number of alive neighbor cells of a given cell 

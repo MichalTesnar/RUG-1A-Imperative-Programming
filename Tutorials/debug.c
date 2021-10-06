@@ -1,51 +1,26 @@
-/*
- * file: functionEvaluator.c
- * 
- * author: Michal Tešnar (m.tesnar@student.rug.nl)
- * 
- * Description: This program defines three functions
- * and executes them on a number in the order given
- * by input.
- */
-
 #include <stdio.h>
 
-int functionF(int x){
-	return 3*x + 1;
-}
-
-int functionG(int x){
-	return x/2;
-}
-
-int functionH(int x){
-	return x*x - x;
+void gridUpdate(int size, int arrayOne[size], int arrayTwo[size]){
+	for(int i = 0; i < size; i++){
+		arrayOne[i] = arrayTwo[i];
+	}
 }
 
 int main(int argc, char **argv){
-	int n; //input variable
-	char command; //commands to execute on the variable
-	scanf("%i", &n);
+	int oldArray[10]={1};
+	int newArray[10];
 	
-	//Go through the commands until the '=' and execute them on the variable.
-	while(scanf("%c", &command)){
-		switch(command){
-			case 'f':
-				n = functionF(n);
-				break;
-			case 'g':
-				n = functionG(n);
-				break;
-			case 'h':
-				n = functionH(n);
-				break;
+	for(int j = 0; j < 5; j++){
+		newArray[0] = 1;
+		printf("%i ", newArray[0]);
+		for(int i = 1; i < 10; i++){
+			newArray[i] = oldArray[i] + oldArray[i-1]; 
+			printf("%i ", newArray[i]);
 		}
-		if(command == '='){
-			break;
-		}
+		gridUpdate(10, oldArray, newArray);
+		printf("\n");
 	}
 	
-	printf("%i\n", n);
+
 	return 0;
 }
-
