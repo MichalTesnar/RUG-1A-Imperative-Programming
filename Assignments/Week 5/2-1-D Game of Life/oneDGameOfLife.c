@@ -1,5 +1,5 @@
 /*
- * file: oneDGameOfLice.c
+ * file: oneDGameOfLife.c
  * 
  * author: Michal Tešnar (m.tesnar@student.rug.nl)
  * 
@@ -15,7 +15,7 @@
 void printArray(int size, int array[size]){
 	for(int i = 0; i < size; i++){
 		printf("%i", array[i]);
-		if(i!=size-1){
+		if(i != size - 1){
 			printf(" ");
 		}
 	}
@@ -25,23 +25,18 @@ void printArray(int size, int array[size]){
 //counts number of alive neighbor cells of a given cell 
 int aliveNeighbors(int size, int array[size], int position){
 	int counter = 0;
-	
 	if((position + 2 >= size && array[position + 2 - size] == 1) || (position + 2 < size && array[position + 2] == 1)){
 		counter++;
 	}
-	
 	if((position + 1 >= size && array[position + 1 - size]==1) || (position + 1 < size && array[position + 1] == 1)){
 		counter++;
 	}
-
 	if((position - 2 < 0 && array[position - 2 + size] == 1) || (position - 2 >= 0 && array[position - 2] == 1)){
 		counter++;
 	}
-	
 	if((position - 1 < 0 && array[position - 1 + size] == 1) || (position - 1 >= 0 && array[position - 1] == 1)){
 		counter++;
 	}
-
 	return counter;
 }
 
@@ -57,19 +52,19 @@ int main(int argc, char **argv){
 	
 	int m, n; //size of the grid, simulation steps
 	scanf("%i %i", &m, &n);
-	int grid[m], newGrid[m]; //normal grid, grid to update
+	int grid[m], newGrid[m]; //initialize grid and and another one to store new values
 	
-	
+	//input grid and copy it to the other one
 	for(int i = 0; i < m; i++){
 		scanf("%i", &grid[i]);
 	}
-	
 	gridUpdate(m, newGrid, grid);
 	
 	//evolution cycle
 	for(int i = 0; i < n; i++){
 		for(int j = 0; j < m; j++){
 			
+			//count the number of alive neighbor cells
 			int aliveNeighborsCount = aliveNeighbors(m, grid, j);
 			
 			//transition rules
@@ -85,7 +80,6 @@ int main(int argc, char **argv){
 		//refresh grid
 		gridUpdate(m, grid, newGrid);
 	}
-	
 	printArray(m, grid);	
 	
 	return 0;

@@ -49,11 +49,9 @@ int main(int argc, char **argv){
 	scanf("%i %i", &n, &m);
 	int counter = 0; //counts numbers which sarisfy condition
 	
-	n = (n%2 == 0 ? n+1 : n); /* if the starting point is even, increase it by one,
-	* so that we can go only through odd numbers by increasing by two (for efficiency).
-	*/
+	n = (n%2 == 0 ? n+1 : n); //making starting point odd for efficiency
 	
-	//Search the range and increase the counter
+	//search the range and increase the counter
 	for(n; n <= m;n += 2){
 		if(isPrime(n) == 1 && oddDigits(n) == 1 && onesInBinary(n)%2==1){
 			counter++;
