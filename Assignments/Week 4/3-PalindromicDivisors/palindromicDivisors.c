@@ -42,7 +42,7 @@ int main(int argc, char **argv){
 				counter++;
 			}
 			
-			if(i%j == 0 && isPalindrom(i/j) == 1 && i/j != 1){
+			if(i%j == 0 && isPalindrom(i/j) == 1 && i/j != j){
 				counter++;
 			}
 			

@@ -24,23 +24,23 @@ int isPrime(int n){
 //Check if all digits in a number are odd.
 int oddDigits(int n){
 	int manipulated = n;
-		while(manipulated != 0){
-			if(manipulated%2 != 1){
-				return 0;
-			}
-			manipulated /= 10;
+	while(manipulated != 0){
+		if(manipulated%2 != 1){
+			return 0;
 		}
+		manipulated /= 10;
+	}
 	return 1;
 }
 
 //Returns number of ones in binary.
 int onesInBinary(int n){
 	int manipulated = n;
-		int binary = 0;
-		while(manipulated != 0){
-			binary += manipulated%2;
-			manipulated /= 2;
-		}
+	int binary = 0;
+	while(manipulated != 0){
+		binary += manipulated%2;
+		manipulated /= 2;
+	}
 	return binary;
 }
 
@@ -59,7 +59,6 @@ int main(int argc, char **argv){
 	}
 	
 	printf("%i\n", counter);
-	
 	return 0;
 }
 

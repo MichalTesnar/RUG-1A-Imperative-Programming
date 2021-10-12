@@ -8,7 +8,6 @@
  * Output is the final state of the population.
  */
 
-
 #include <stdio.h>
 
 //prints the values in an array
@@ -28,7 +27,7 @@ int aliveNeighbors(int size, int array[size], int position){
 	if((position + 2 >= size && array[position + 2 - size] == 1) || (position + 2 < size && array[position + 2] == 1)){
 		counter++;
 	}
-	if((position + 1 >= size && array[position + 1 - size]==1) || (position + 1 < size && array[position + 1] == 1)){
+	if((position + 1 >= size && array[position + 1 - size] == 1) || (position + 1 < size && array[position + 1] == 1)){
 		counter++;
 	}
 	if((position - 2 < 0 && array[position - 2 + size] == 1) || (position - 2 >= 0 && array[position - 2] == 1)){
@@ -46,7 +45,6 @@ void gridUpdate(int size, int arrayOne[size], int arrayTwo[size]){
 		arrayOne[i] = arrayTwo[i];
 	}
 }
-
 
 int main(int argc, char **argv){
 	
@@ -74,13 +72,12 @@ int main(int argc, char **argv){
 			
 			if(grid[j] == 1 && (aliveNeighborsCount != 2 && aliveNeighborsCount != 4)){
 				newGrid[j] = 0;
-			}
-			
+			}		
 		}
 		//refresh grid
 		gridUpdate(m, grid, newGrid);
 	}
-	printArray(m, grid);	
+	printArray(m, grid);
 	
 	return 0;
 }

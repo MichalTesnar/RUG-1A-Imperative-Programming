@@ -12,7 +12,6 @@ int main(int argc, char **argv){
 	int a, b, c, n; //variables for devices, budget
 	scanf("%i %i %i %i", &a, &b, &c, &n);
 	
-	
 	int i = 0, j = 0; //iterable variables
 	int counter = 0; //count of possible budget combinations
 	

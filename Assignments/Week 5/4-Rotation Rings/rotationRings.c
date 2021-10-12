@@ -9,7 +9,6 @@
  * terminated by -1.
  */
 
-
 #include <stdio.h>
 
 //prints 2D array onto the screen
