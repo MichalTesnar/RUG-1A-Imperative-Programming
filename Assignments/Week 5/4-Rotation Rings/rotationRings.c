@@ -101,7 +101,9 @@ int main(int argc, char **argv){
 					break;
 				
 			}
+		//update the grid with values from newGrid
 		gridUpdate(n, grid, newGrid);
+		//check if you want to make another transformation
 		scanf("%i", &x);
 	}
 	print2DArray(n, grid);

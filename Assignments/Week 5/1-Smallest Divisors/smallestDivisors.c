@@ -16,10 +16,12 @@
 //checks given number is in a part of array up to a given index
 int wasUsed(int usedDivisors[SIZE], int number, int endIndex){
 	for(int i = 0; i <= endIndex; i++){
+		//if divisor is found returns 1
 		if(number == usedDivisors[i]){
 			return 1;
 		}
 	}
+	//otherwise return 0
 	return 0;
 }
 

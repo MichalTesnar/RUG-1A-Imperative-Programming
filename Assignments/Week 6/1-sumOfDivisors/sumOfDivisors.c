@@ -10,43 +10,41 @@
 
 #include <stdio.h>
 
-//prints the array for control
-void printArray(int array[], int size){	
-	for(int i = 0; i < size; i++){
-		printf("%i ", array[i]);
-	}
-	printf("\n");
-}
-
-//recursive function to calculate all the possible sums in the array
+//recursive function for the task
 int possibleSums(int array[], int ourSum, int targetSum, int index, int size){
-	if(index>size){
-		return (ourSum == targetSum);
+	//base contition to end the recursion
+	if(index == size){
+		return (ourSum == targetSum); //return boolean whether we have found the taget sum
 	}
-	return possibleSums(array, ourSum + array[index], targetSum, index+1, size) +
-		possibleSums(array, ourSum, targetSum, index+1, size);
+	
+	//recursively move one index and either add it or not
+	return possibleSums(array, ourSum + array[index], targetSum, index + 1, size)
+		+ possibleSums(array, ourSum, targetSum, index + 1, size);
 }
 
 int main(int argc, char **argv){
-	
-	int input, divisors[24]={1}, endIndex = 1;
+	//input
+	int input;
 	scanf("%i", &input);
 	
+	int divisors[24] = {1}; //array to hold divisors of a number except for itself
+	int endIndex = 1; //index till which we have to check the array
+	
+	//search divisors
 	for(int i = 2; i*i <= input; i++){
-		if(input%i==0){
+		//if we find divisor, we add it to the array and increase the endIndex
+		if(input%i == 0){
 			divisors[endIndex] = i;
 			endIndex++;
-			if(i*i!=input){
+			//if number is not square also add the unitary divisor
+			if(i*i != input){
 				divisors[endIndex] = input/i;
 				endIndex++;
 				}
 		}
 	}
 	
-	//printArray(divisors, endIndex);
-	
-	printf("%i\n", possibleSums(divisors, 0, input, 0, endIndex)/2);
-	
+	//print the result of the recursive function call
+	printf("%i\n", possibleSums(divisors, 0, input, 0, endIndex));
 	return 0;
 }
-

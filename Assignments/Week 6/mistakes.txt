@@ -1,0 +1,19 @@
+2. *Removing Values*
+Even though the function as a whole is increasing, we can still skip
+skip a number, because that may lead to better overall result later.
+
+3. *Constrained Bitstrings*
+If you have already placed a digit and it does not work, the program
+must be able to backtrack to by last position and remove the digit.
+
+4. *Talking Knights*
+Switch of x and y coordinates passed into the matrix
+-> X is horizontal, Y is vertical
+
+To generate knight movements, we can loop from -2 to 2 on both
+coordinates, but they cannot be the same and neither can be equal
+to zero.
+
+If we want the whole function to return boolean value, we can use
+the value of the whole function as a conditition in itself, which
+then propagates to the previous return.

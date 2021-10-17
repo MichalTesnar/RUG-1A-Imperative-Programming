@@ -13,21 +13,23 @@
 #include <stdio.h>
 
 //returns 1 if we can travel from given startpoint in a given direction
-int canTravelTo(int airports, int maximumRunways, int airportDestinations[airports][maximumRunways], int start, int direction){
+int canTravelTo(int airports, int maximumRunways,
+	int airportDestinations[airports][maximumRunways], int start, int direction){
 	for(int i = 0; i < maximumRunways; i++){
+		//if we found the airport we were looking for return 1
 		if(direction == airportDestinations[start][i]){
 			return 1;
 		}
 	}
+	//otherwise return 0
 	return 0;
 }
 
 int main(int argc, char **argv){
-	
-	int airports, maximumRunways, visits; //input variables
+	int airports, maximumRunways, visits; //input variables with self-explanatory names
 	scanf("%i %i %i", &airports, &maximumRunways, &visits);
 	
-	//array of possible destinations from given airports and their input from user
+	//input array of possible destinations from given airports
 	int airportDestinations[airports][maximumRunways];
 	for(int i = 0; i < airports; i++){
 		for(int j = 0; j < maximumRunways; j++){

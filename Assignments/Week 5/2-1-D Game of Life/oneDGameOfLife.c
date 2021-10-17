@@ -24,16 +24,24 @@ void printArray(int size, int array[size]){
 //counts number of alive neighbor cells of a given cell 
 int aliveNeighbors(int size, int array[size], int position){
 	int counter = 0;
-	if((position + 2 >= size && array[position + 2 - size] == 1) || (position + 2 < size && array[position + 2] == 1)){
+	//position two to the right
+	if((position + 2 >= size && array[position + 2 - size] == 1)
+		|| (position + 2 < size && array[position + 2] == 1)){
 		counter++;
 	}
-	if((position + 1 >= size && array[position + 1 - size] == 1) || (position + 1 < size && array[position + 1] == 1)){
+	//position one to the right
+	if((position + 1 >= size && array[position + 1 - size] == 1)
+		|| (position + 1 < size && array[position + 1] == 1)){
 		counter++;
 	}
-	if((position - 2 < 0 && array[position - 2 + size] == 1) || (position - 2 >= 0 && array[position - 2] == 1)){
+	//position two to the left
+	if((position - 2 < 0 && array[position - 2 + size] == 1)
+		|| (position - 2 >= 0 && array[position - 2] == 1)){
 		counter++;
 	}
-	if((position - 1 < 0 && array[position - 1 + size] == 1) || (position - 1 >= 0 && array[position - 1] == 1)){
+	//position one to the left
+	if((position - 1 < 0 && array[position - 1 + size] == 1)
+		|| (position - 1 >= 0 && array[position - 1] == 1)){
 		counter++;
 	}
 	return counter;
