@@ -1,21 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int randomWalk(int startX, int startY, int endX, int endY, int steps, int counter){
-	//printf("%i %i %i %i\n", startX, startY, steps, counter);
-	if(steps == 0){
-		return(startX == endX && startY == endY);
+
+double factorial(double x){
+	if(x == 1){
+		return 1;
 	}
-	counter += randomWalk(startX + 1, startY, endX, endY, steps - 1, counter) +
-	randomWalk(startX - 1, startY, endX, endY, steps - 1, counter) +
-	randomWalk(startX, startY + 1, endX, endY, steps - 1, counter) +
-	randomWalk(startX, startY - 1, endX, endY, steps - 1, counter);
-	return counter;
+	return x*factorial(x-1);
 }
 
 int main(int argc, char **argv){
-	int startX = 0, startY = 0, endX = 2, endY = 2;
-	int steps = 4;
-	int i = randomWalk(startX, startY, endX, endY, steps, 0);
+	
+	int i = 0;
+	char string[25];
+	
+	scanf("%s", string);
+	
+	i = strlen(string);
+	
 	printf("%i\n", i);
+	
 	return 0;
 }

@@ -1,0 +1,38 @@
+0. *Time Complexity*
+Complexity log(N*N)=log(N^2)=2logN, where 2 is a constant so, it reduces
+to log(N).
+If a loop has a constant complexity (by a given number) we do not care
+about it.
+
+1. *Missing Numbers*
+We need to input all numbers into an array, we always need to allocate
+space dynamically for that and it is generally better to copy already
+working code then try to figure out, how the functions work, since they
+crash all the time.
+Solution with creating an array with binary values for whether we want
+have already used a number is nice, however, the array gets too big,
+which results in segmentation fault.
+Keeping only used numbers and then calculating differences between them
+also works, but is really slow, because it uses binary search to search
+whether a number has been used and then it has to recopy the whole array,
+so potentially N*N*log(N) complexity.
+The best solution is to get the whole array, sort it by mergeSort and
+then if two numbers next to each other are not the same, we sum their
+difference - 1 which is the number of numbers between them:
+3 - 5 (- 1) = 1, since 4 is the only missing number in between.
+
+2. *Partners*
+For a number to be within a range it has to be higher than the lower
+bound and lower than the higher bound. It is easy to mess up.
+
+3. *Minimum Steps*
+To minimize the complexity, we do not calculate the branches which are
+not possible from the top down, that is we do not calculate the branch
+which is not divisible by 3 for example. We keep the global minimum as
+a pointer and terminate the sequence if we pass it.
+
+4. *Playing Draughts*
+The check for valid move (there is an empty space within the map)
+cannot be applied to checking whether there is a piece we can eat on
+the board because its presence cuases contradiction with the condition
+for an empty space on the board.
