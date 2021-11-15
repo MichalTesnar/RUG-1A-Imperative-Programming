@@ -1,25 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-
-double factorial(double x){
-	if(x == 1){
-		return 1;
-	}
-	return x*factorial(x-1);
-}
 
 int main(int argc, char **argv){
-	
-	int i = 0;
-	char string[25];
-	
-	scanf("%s", string);
-	
-	i = strlen(string);
-	
-	printf("%i\n", i);
+	int N = 100000;
+	int k = 2;
+	int s = 1;
+	while (s < N) {
+		s = 2*s;
+		
+		for (int i = s; i > 0; i--) {
+			k++;
+		}
+		printf("%i %i\n", s, k);
+	}
+	printf("%i\n", k);
 	
 	return 0;
 }

@@ -12,58 +12,49 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//creation of a dynamic array, copied from the reader
-int *dynamicIntArray(int size){
-	int *ptr = malloc(size*sizeof(int));
-	return ptr;
+
+//swap function copied from the reader
+void swap(int i, int j, int arr[]){
+	int h = arr[i];
+	arr[i] = arr[j];
+	arr[j] = h;
 }
 
-//copying a subarray from an array, copied from the reader
-int *copySubArray(int left, int right, int arr[]){
-	int i;
-	int *copy = dynamicIntArray((right-left)*sizeof(int));
-	for(i = left; i < right; i++){
-		copy[i - left] = arr[i];
-	}
-	return copy;
-}
-
-//mergeSort function copied from the reader
-void mergeSort(int length, int arr[]) {
-	int l, r, mid, idx, *left, *right;
-	if(length <= 1){
-		return;
-	}
-	mid = length/2;
-	left = copySubArray(0, mid, arr);
-	right = copySubArray(mid, length, arr);
-	mergeSort(mid, left);
-	mergeSort(length - mid, right);
-	idx = 0;
-	l = 0;
-	r = 0;
-	while((l < mid) && (r < length - mid)){
-		if (left[l] < right[r]){
-			arr[idx] = left[l];
-			l++;
-		}else{
-			arr[idx] = right[r];
-			r++;
+//partition function copied from the reader
+int partition (int length, int arr[]){
+	int left = 0;
+	int right = length;
+	int pivot = arr[0];
+	while (left < right){
+		while ((left < right) && (arr[left] <= pivot)){
+			left++;
 		}
-		idx++;
+		while ((left < right) && (pivot < arr[right-1])){
+			right--;
+		}
+		if (left < right){
+			/* (arr[left] > pivot) && (arr[right-1] <= pivot) : swap */
+			right--;
+			swap(left, right, arr);
+			left++;
+		}
 	}
-	while(l < mid){
-		arr[idx] = left[l];
-		idx++;
-		l++;
+	/* put pivot in right location: swap(0,left-1, arr) */
+	left--;
+	arr[0] = arr[left];
+	arr[left] = pivot;
+	return left;
+}
+
+//quickSort function copied from the reader
+void quickSort(int length, int arr[]){
+	int boundary;
+	if (length <= 1) {
+		return; /* empty or singleton array: nothing to sort */
 	}
-	while(r < length - mid){
-		arr[idx] = right[r];
-		idx++;
-		r++;
-	}
-	free(left);
-	free(right);
+	boundary = partition(length, arr);
+	quickSort(boundary, arr);
+	quickSort(length - boundary - 1, &arr[boundary + 1]);
 }
 
 int main(int argc, char **argv){
@@ -88,9 +79,9 @@ int main(int argc, char **argv){
 	}
 	
 	//sorting the array we have
-	mergeSort(size, pArray);
+	quickSort(size, pArray);
 	
-	//count the missing digits by measuring the difference between consecutive numbers
+	//count the missing digits by measuring the between consecutive numbers
 	int counter = 0;
 	for(int i = 0; i < size - 1; i++){
 		if(pArray[i + 1] != pArray[i]){
@@ -100,6 +91,9 @@ int main(int argc, char **argv){
 	
 	//printing the number of missing digits
 	printf("%i\n", counter);
+	
+	//free the memory we malloc-ed
+	free(pArray);
 	
 	return 0;
 }
